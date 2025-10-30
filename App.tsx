@@ -7,25 +7,25 @@ import Home from './pages/Home';
 import Company from './pages/Company';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
+import useSmoothScroll from './hooks/useSmoothScroll';
 
 export const ScrollContainerContext = createContext<RefObject<HTMLElement> | null>(null);
 
 const AppContent: React.FC = () => {
-  const location = useLocation();
-  const isHomePage = location.pathname === '/';
   const mainRef = useRef<HTMLElement>(null);
+
+  // Apply the smooth scroll effect to the main container
+  useSmoothScroll(mainRef);
 
   const mainClasses = [
     'flex-grow',
     'overflow-y-auto',
-    'scroll-smooth',
-    isHomePage ? 'snap-y snap-mandatory' : ''
-  ].filter(Boolean).join(' ');
+  ].join(' ');
 
   return (
     <div className="flex flex-col h-screen">
       <Header />
-      <main ref={mainRef} className={mainClasses}>
+      <main ref={mainRef} className={mainClasses} style={{ overscrollBehavior: 'none' }}>
         <ScrollContainerContext.Provider value={mainRef}>
           <Routes>
             <Route path="/" element={<Home />} />
