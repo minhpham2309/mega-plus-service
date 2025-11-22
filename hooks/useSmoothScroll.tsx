@@ -32,6 +32,16 @@ const useSmoothScroll = (scrollContainerRef: React.RefObject<HTMLElement>) => {
     const scrollContainer = scrollContainerRef.current;
     if (!scrollContainer) return;
 
+    // Detect touch devices (mobile/tablet).
+    // We do NOT want to hijack scrolling on touch devices because:
+    // 1. iOS Safari freezes if we preventDefault on wheel events incorrectly.
+    // 2. Native momentum scrolling on mobile is superior to JS emulation.
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    if (isTouchDevice) {
+        return;
+    }
+
     // Initialize scroll positions from the container's current state
     currentScrollY.current = scrollContainer.scrollTop;
     targetScrollY.current = scrollContainer.scrollTop;

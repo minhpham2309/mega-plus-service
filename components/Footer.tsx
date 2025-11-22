@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Column 1: Company Info */}
-          <div>
+          <div className="break-words">
             <div className="mb-6">
                 <Logo className="h-8 w-auto md:h-10 text-white" />
             </div>
@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
              <h4 className="text-lg font-bold text-white mb-6 uppercase border-b-2 border-fastway-orange inline-block pb-1">
                 {t('footer.fanpage_title')}
             </h4>
-            <div className="bg-white rounded-lg overflow-hidden shadow-lg max-w-sm">
+            <div className="bg-white rounded-lg overflow-hidden shadow-lg max-w-sm w-full">
                 <div className="h-32 bg-cover bg-center relative" style={{ backgroundImage: "url('https://picsum.photos/400/200')" }}>
                      <div className="absolute inset-0 bg-black/20"></div>
                      <div className="absolute bottom-4 left-4 flex items-center">

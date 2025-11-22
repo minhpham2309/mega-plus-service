@@ -29,12 +29,22 @@ const AppContent: React.FC = () => {
   const mainClasses = [
     'flex-grow',
     'overflow-y-auto',
+    'w-full', // Ensure full width
   ].join(' ');
 
   return (
-    <div className="flex flex-col h-screen">
+    // Use supports-[height:100dvh] for better mobile browser support (address bar handling)
+    // max-w-[100vw] prevents horizontal overflow
+    <div className="flex flex-col h-screen supports-[height:100dvh]:h-[100dvh] w-full max-w-[100vw] overflow-hidden">
       <Header />
-      <main ref={mainRef} className={mainClasses} style={{ overscrollBehavior: 'none' }}>
+      <main 
+        ref={mainRef} 
+        className={mainClasses} 
+        style={{ 
+            overscrollBehavior: 'none',
+            WebkitOverflowScrolling: 'touch' // Critical for smooth iOS scrolling
+        }}
+      >
         <ScrollContainerContext.Provider value={mainRef}>
           <Routes>
             <Route path="/" element={<Home />} />
