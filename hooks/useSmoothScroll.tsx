@@ -1,6 +1,5 @@
 
-// Fix: Import `React` to provide the namespace for types like `React.RefObject`.
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 
 const LERP_FACTOR = 0.06; // Decreased for a smoother, more 'floaty' effect
 const SCROLL_MULTIPLIER = 1; // Adjusts scroll sensitivity
@@ -10,6 +9,24 @@ const useSmoothScroll = (scrollContainerRef: React.RefObject<HTMLElement>) => {
   const currentScrollY = useRef(0);
   const targetScrollY = useRef(0);
   const animationFrameId = useRef<number | null>(null);
+
+  // Function to programmatically scroll to top and reset internal state
+  const scrollToTop = useCallback(() => {
+    if (scrollContainerRef.current) {
+        // Reset DOM scroll
+        scrollContainerRef.current.scrollTop = 0;
+        
+        // Reset internal state to prevent the smooth scroll loop from overwriting the position
+        currentScrollY.current = 0;
+        targetScrollY.current = 0;
+
+        // Cancel any pending animation frame to stop movement
+        if (animationFrameId.current) {
+            cancelAnimationFrame(animationFrameId.current);
+            animationFrameId.current = null;
+        }
+    }
+  }, [scrollContainerRef]);
 
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
@@ -75,6 +92,8 @@ const useSmoothScroll = (scrollContainerRef: React.RefObject<HTMLElement>) => {
       }
     };
   }, [scrollContainerRef]); // Re-run the effect if the ref changes
+
+  return { scrollToTop };
 };
 
 export default useSmoothScroll;

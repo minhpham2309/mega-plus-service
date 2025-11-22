@@ -1,5 +1,5 @@
 
-import React, { createContext, useRef, RefObject } from 'react';
+import React, { createContext, useRef, RefObject, useEffect } from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -7,15 +7,23 @@ import Home from './pages/Home';
 import Company from './pages/Company';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
+import About from './pages/About';
+import WhoWeServe from './pages/WhoWeServe';
 import useSmoothScroll from './hooks/useSmoothScroll';
 
 export const ScrollContainerContext = createContext<RefObject<HTMLElement> | null>(null);
 
 const AppContent: React.FC = () => {
   const mainRef = useRef<HTMLElement>(null);
+  const location = useLocation();
 
-  // Apply the smooth scroll effect to the main container
-  useSmoothScroll(mainRef);
+  // Apply the smooth scroll effect to the main container and get the reset function
+  const { scrollToTop } = useSmoothScroll(mainRef);
+
+  // Automatically scroll to top whenever the route changes
+  useEffect(() => {
+    scrollToTop();
+  }, [location.pathname, scrollToTop]);
 
   const mainClasses = [
     'flex-grow',
@@ -32,6 +40,8 @@ const AppContent: React.FC = () => {
             <Route path="/company" element={<Company />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/who-we-serve" element={<WhoWeServe />} />
           </Routes>
           <Footer />
         </ScrollContainerContext.Provider>

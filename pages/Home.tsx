@@ -1,4 +1,3 @@
-
 import React from 'react';
 import AirFreightIcon from '../components/icons/AirFreightIcon';
 import OceanFreightIcon from '../components/icons/OceanFreightIcon';
@@ -21,10 +20,10 @@ const Home: React.FC = () => {
             <section className="relative min-h-screen snap-start flex flex-col justify-center items-center bg-cover bg-center" style={{ backgroundImage: "url('https://picsum.photos/1920/1080?grayscale&blur=2')" }}>
                 <div className="absolute inset-0 bg-fastway-dark-blue bg-opacity-70"></div>
                 <div className="relative text-center text-white z-10 px-4">
-                    <h1 className="text-5xl md:text-7xl font-extrabold mb-4 leading-tight animate-fade-in-down">Fastway is Clean and Professional Template.</h1>
+                    <h1 className="text-5xl md:text-7xl font-extrabold mb-4 leading-tight animate-fade-in-down">Mega Plus is Clean and Professional Template.</h1>
                     <Typewriter
                         tag="p"
-                        text="Fastway - Transport & Logistic HTML Template"
+                        text="Mega Plus - Transport & Logistic HTML Template"
                         className="text-xl md:text-2xl font-light"
                         speed={25}
                         startDelay={1000}
