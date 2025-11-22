@@ -10,6 +10,7 @@ import Contact from './pages/Contact';
 import About from './pages/About';
 import WhoWeServe from './pages/WhoWeServe';
 import useSmoothScroll from './hooks/useSmoothScroll';
+import { LanguageProvider } from './contexts/LanguageContext';
 
 export const ScrollContainerContext = createContext<RefObject<HTMLElement> | null>(null);
 
@@ -52,9 +53,11 @@ const AppContent: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <HashRouter>
-      <AppContent />
-    </HashRouter>
+    <LanguageProvider>
+      <HashRouter>
+        <AppContent />
+      </HashRouter>
+    </LanguageProvider>
   );
 };
 

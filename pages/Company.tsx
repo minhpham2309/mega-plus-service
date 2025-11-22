@@ -7,26 +7,29 @@ import SecurityIcon from '../components/icons/SecurityIcon';
 import Typewriter from '../components/Typewriter';
 import AnimatedSection from '../components/AnimatedSection';
 import Partners from '../components/Partners';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const AdvantageCard: React.FC<{ icon: React.ReactNode, title: string, description: string }> = ({ icon, title, description }) => (
-    <div className="text-center p-6">
+    <div className="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm transition-all duration-300">
         <div className="text-fastway-orange w-16 h-16 mx-auto mb-4">{icon}</div>
-        <h3 className="text-xl font-bold text-gray-800 mb-2">{title}</h3>
-        <p className="text-gray-600">{description}</p>
+        <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{title}</h3>
+        <p className="text-gray-600 dark:text-gray-400">{description}</p>
     </div>
 );
 
 const Company: React.FC = () => {
+    const { t } = useLanguage();
+
     return (
         <div>
             {/* Hero Section */}
             <section className="relative h-[500px] bg-cover bg-center" style={{ backgroundImage: "url('https://picsum.photos/1920/1080?grayscale&blur=2&random=10')" }}>
-                <div className="absolute inset-0 bg-fastway-dark-blue bg-opacity-70"></div>
+                <div className="absolute inset-0 bg-fastway-dark-blue bg-opacity-70 dark:bg-opacity-80"></div>
                 <div className="relative h-full flex flex-col justify-center items-center text-center text-white z-10 px-4">
-                    <h1 className="text-5xl md:text-6xl font-extrabold mb-4 leading-tight animate-fade-in-down">Competitive Advantages For The Largest Companies!</h1>
+                    <h1 className="text-5xl md:text-6xl font-extrabold mb-4 leading-tight animate-fade-in-down">{t('company.hero_title')}</h1>
                     <Typewriter
                         tag="p"
-                        text="Safe, Reliable & Express Logistic Solutions That Saves Your Time"
+                        text={t('company.hero_typewriter')}
                         className="text-xl md:text-2xl font-light"
                         speed={25}
                         startDelay={1000}
@@ -35,16 +38,16 @@ const Company: React.FC = () => {
             </section>
 
             {/* What We Do Section */}
-            <section className="py-20 bg-white">
+            <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
                 <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
                     <AnimatedSection>
                         <div>
-                            <span className="text-fastway-orange font-semibold">What We Do</span>
-                            <h2 className="text-4xl font-bold text-gray-800 mt-2 mb-4">Safe, Reliable & Express Logistic Solutions That Saves Your Time!</h2>
-                            <p className="text-gray-600 leading-relaxed mb-6">
-                                We pride ourselves on providing the best transport and shipping services available allover the world. Our skilled personnel, utilising the latest communications, tracking and processing software, combined with decades of experience.
+                            <span className="text-fastway-orange font-semibold">{t('home.safe_badge')}</span>
+                            <h2 className="text-4xl font-bold text-gray-800 dark:text-white mt-2 mb-4">{t('home.safe_title')}</h2>
+                            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                                {t('home.safe_desc')}
                             </p>
-                            <button className="bg-fastway-orange text-white font-bold py-3 px-8 rounded-full hover:bg-orange-600 transition-colors duration-300">Schedule An Appointment</button>
+                            <button className="bg-fastway-orange text-white font-bold py-3 px-8 rounded-full hover:bg-orange-600 transition-colors duration-300">{t('common.schedule_appointment')}</button>
                         </div>
                     </AnimatedSection>
                     <AnimatedSection delay={200}>
@@ -56,7 +59,7 @@ const Company: React.FC = () => {
             </section>
 
             {/* --- Content from About Us (Vision & Mission) --- */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
                 <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
                     <AnimatedSection>
                         <div className="overflow-hidden rounded-lg shadow-xl">
@@ -68,24 +71,24 @@ const Company: React.FC = () => {
                         </div>
                     </AnimatedSection>
                     <AnimatedSection delay={200}>
-                        <h2 className="text-3xl font-bold text-gray-800 mb-4">Vision</h2>
-                        <p className="text-gray-600 mb-6 leading-relaxed">
-                            To become the leading and most prestigious enterprise in Southeast Asia by 2030 — specializing in import-export consulting, international logistics, and the supply of premium agricultural products and food.
+                        <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">{t('company.vision_title')}</h2>
+                        <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                            {t('company.vision_desc')}
                         </p>
                         
-                        <h3 className="text-xl font-bold text-gray-800 mb-3">🚀 Mission</h3>
-                        <ul className="space-y-3 text-gray-600 list-disc list-inside">
-                            <li>To be one of the most reliable and customer-preferred freight forwarders.</li>
-                            <li>To deliver competitive logistics solutions with professionalism and efficiency.</li>
-                            <li>To ensure the utmost satisfaction of our customers and global partners.</li>
-                            <li>To promote and facilitate the growth of international trade between Vietnam and the world.</li>
+                        <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3">{t('company.mission_title')}</h3>
+                        <ul className="space-y-3 text-gray-600 dark:text-gray-300 list-disc list-inside">
+                            <li>{t('company.mission_1')}</li>
+                            <li>{t('company.mission_2')}</li>
+                            <li>{t('company.mission_3')}</li>
+                            <li>{t('company.mission_4')}</li>
                         </ul>
                     </AnimatedSection>
                 </div>
             </section>
 
             {/* --- Content from About Us (Core Values) --- */}
-            <section className="py-20 bg-white">
+            <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
                 <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
                     <AnimatedSection>
                         <div className="overflow-hidden rounded-lg shadow-xl">
@@ -97,23 +100,23 @@ const Company: React.FC = () => {
                         </div>
                     </AnimatedSection>
                     <AnimatedSection delay={200}>
-                        <h2 className="text-3xl font-bold text-gray-800 mb-6">Core Value</h2>
-                        <ul className="space-y-4 text-gray-600">
+                        <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">{t('company.core_value_title')}</h2>
+                        <ul className="space-y-4 text-gray-600 dark:text-gray-300">
                             <li className="flex flex-col">
-                                <strong className="text-gray-800 mb-1">Customer-Centric:</strong>
-                                <span>We always prioritize our customers’ benefits and experiences in every service we deliver.</span>
+                                <strong className="text-gray-800 dark:text-white mb-1">{t('company.cv_1_title')}</strong>
+                                <span>{t('company.cv_1_desc')}</span>
                             </li>
                             <li className="flex flex-col">
-                                <strong className="text-gray-800 mb-1">Continuous Innovation:</strong>
-                                <span>We continuously improve our processes through innovation and technology application.</span>
+                                <strong className="text-gray-800 dark:text-white mb-1">{t('company.cv_2_title')}</strong>
+                                <span>{t('company.cv_2_desc')}</span>
                             </li>
                             <li className="flex flex-col">
-                                <strong className="text-gray-800 mb-1">Professionalism:</strong>
-                                <span>Our team is committed to responsibility, integrity, and efficiency in every operation.</span>
+                                <strong className="text-gray-800 dark:text-white mb-1">{t('company.cv_3_title')}</strong>
+                                <span>{t('company.cv_3_desc')}</span>
                             </li>
                             <li className="flex flex-col">
-                                <strong className="text-gray-800 mb-1">Development:</strong>
-                                <span>We pursue sustainable growth for both our company and our partners.</span>
+                                <strong className="text-gray-800 dark:text-white mb-1">{t('company.cv_4_title')}</strong>
+                                <span>{t('company.cv_4_desc')}</span>
                             </li>
                         </ul>
                     </AnimatedSection>
@@ -121,7 +124,7 @@ const Company: React.FC = () => {
             </section>
 
             {/* --- Content from Who We Serve --- */}
-            <section className="py-16 bg-gray-50">
+            <section className="py-16 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
                 <div className="container mx-auto px-6">
                     
                     {/* Two Images Row */}
@@ -153,25 +156,25 @@ const Company: React.FC = () => {
                         <AnimatedSection delay={100}>
                             <div className="mb-6">
                                 <span className="bg-[#4A72C8] text-white text-lg font-medium px-4 py-1 uppercase tracking-wide">
-                                    VISION
+                                    {t('company.vision_badge')}
                                 </span>
                             </div>
-                            <ul className="space-y-3 text-gray-600 text-sm md:text-base">
+                            <ul className="space-y-3 text-gray-600 dark:text-gray-300 text-sm md:text-base">
                                 <li className="flex items-start">
                                     <span className="mr-2 text-gray-400">-</span>
-                                    <span>Becoming one of the most reliable freight forwarders favored by customers.</span>
+                                    <span>{t('company.vision_list_1')}</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="mr-2 text-gray-400">-</span>
-                                    <span>Specialized in providing competitive services and solutions.</span>
+                                    <span>{t('company.vision_list_2')}</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="mr-2 text-gray-400">-</span>
-                                    <span>Ensuring the satisfaction of customers and global partners.</span>
+                                    <span>{t('company.vision_list_3')}</span>
                                 </li>
                                 <li className="flex items-start">
                                     <span className="mr-2 text-gray-400">-</span>
-                                    <span>Making development of the international trade between Vietnam and other countries in the world.</span>
+                                    <span>{t('company.vision_list_4')}</span>
                                 </li>
                             </ul>
                         </AnimatedSection>
@@ -179,11 +182,11 @@ const Company: React.FC = () => {
                         {/* Core Value */}
                         <AnimatedSection delay={300}>
                              <div className="mb-4">
-                                <h2 className="text-2xl font-light text-gray-800 uppercase tracking-wide">CORE VALUE</h2>
+                                <h2 className="text-2xl font-light text-gray-800 dark:text-white uppercase tracking-wide">{t('company.cv_badge')}</h2>
                                 <div className="w-12 h-1 bg-fastway-orange mt-2"></div>
                             </div>
-                            <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                                We believe our customs are able to enjoy employees’ sense of service, responsiveness and professionalism.
+                            <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">
+                                {t('company.cv_desc')}
                             </p>
                         </AnimatedSection>
                     </div>
@@ -191,41 +194,41 @@ const Company: React.FC = () => {
             </section>
 
             {/* Advantages Section */}
-            <section className="py-20 bg-white">
+            <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
                 <div className="container mx-auto px-6">
                     <AnimatedSection>
                          <div className="text-center mb-12">
-                             <h2 className="text-3xl font-bold text-gray-800">Our Advantages</h2>
-                             <p className="text-gray-500 mt-2">Why leading companies choose us</p>
+                             <h2 className="text-3xl font-bold text-gray-800 dark:text-white">{t('company.advantages_title')}</h2>
+                             <p className="text-gray-500 dark:text-gray-400 mt-2">{t('company.advantages_desc')}</p>
                          </div>
                     </AnimatedSection>
                     <div className="grid md:grid-cols-4 gap-8">
                         <AnimatedSection>
                             <AdvantageCard 
                                 icon={<PricingIcon />} 
-                                title="Transparent Pricing" 
-                                description="International supply chains involves challenging regulations."
+                                title={t('company.adv_pricing_title')} 
+                                description={t('company.adv_pricing_desc')} 
                             />
                         </AnimatedSection>
                         <AnimatedSection delay={200}>
                              <AdvantageCard 
                                 icon={<TrackingIcon />} 
-                                title="Real-Time Tracking" 
-                                description="Ensure customers' supply chains are fully compliant by practices."
+                                title={t('company.adv_tracking_title')} 
+                                description={t('company.adv_tracking_desc')} 
                             />
                         </AnimatedSection>
                         <AnimatedSection delay={400}>
                              <AdvantageCard 
                                 icon={<WarehouseIcon />} 
-                                title="Warehouse Storage" 
-                                description="Depending on your product, we provide warehouse activities."
+                                title={t('company.adv_warehouse_title')} 
+                                description={t('company.adv_warehouse_desc')} 
                             />
                         </AnimatedSection>
                         <AnimatedSection delay={600}>
                              <AdvantageCard 
                                 icon={<SecurityIcon />} 
-                                title="Security For Cargo" 
-                                description="High security requirements and are certified to local standards."
+                                title={t('company.adv_security_title')} 
+                                description={t('company.adv_security_desc')} 
                             />
                         </AnimatedSection>
                     </div>

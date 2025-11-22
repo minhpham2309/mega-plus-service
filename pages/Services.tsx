@@ -5,25 +5,28 @@ import OceanFreightIcon from '../components/icons/OceanFreightIcon';
 import RoadFreightIcon from '../components/icons/RoadFreightIcon';
 import AnimatedSection from '../components/AnimatedSection';
 import Typewriter from '../components/Typewriter';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const ServiceCard: React.FC<{ icon: React.ReactNode, title: string, description: string }> = ({ icon, title, description }) => (
-    <div className="bg-white p-8 rounded-lg shadow-lg text-center border border-gray-200 hover:shadow-2xl transition-shadow duration-300 h-full">
+    <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg text-center border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 h-full">
         <div className="text-fastway-orange w-20 h-20 mx-auto mb-6">{icon}</div>
-        <h3 className="text-2xl font-bold text-gray-800 mb-3">{title}</h3>
-        <p className="text-gray-600 leading-relaxed">{description}</p>
+        <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-3">{title}</h3>
+        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{description}</p>
     </div>
 );
 
 const Services: React.FC = () => {
+    const { t } = useLanguage();
+
     return (
         <div>
             {/* Hero Section */}
             <section className="relative h-[500px] bg-cover bg-center" style={{ backgroundImage: "url('https://picsum.photos/1920/1080?grayscale&blur=2&random=20')" }}>
-                <div className="absolute inset-0 bg-fastway-dark-blue bg-opacity-70"></div>
+                <div className="absolute inset-0 bg-fastway-dark-blue bg-opacity-70 dark:bg-opacity-80"></div>
                 <div className="relative h-full flex flex-col justify-center items-center text-center text-white z-10 px-4">
                      <Typewriter
                         tag="h1"
-                        text="Reliable & Express Logistic Solutions Saves Your Time!"
+                        text={t('services.hero_typewriter')}
                         className="text-5xl md:text-6xl font-extrabold mb-4 leading-tight"
                         speed={25}
                         startDelay={500}
@@ -32,13 +35,13 @@ const Services: React.FC = () => {
             </section>
 
             {/* Services Section */}
-            <section className="py-24 bg-gray-50">
+            <section className="py-24 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
                 <div className="container mx-auto px-6">
                     <AnimatedSection>
                         <div className="text-center mb-16 max-w-3xl mx-auto">
-                            <h2 className="text-4xl font-bold text-gray-800">Delivering the Best Global Logistics Solutions.</h2>
-                            <p className="text-lg text-gray-600 mt-4">
-                                Our global logistics expertise, advanced supply chain technology & customized logistics solutions will help you analyze, develop and implement successful supply chain management strategies.
+                            <h2 className="text-4xl font-bold text-gray-800 dark:text-white">{t('services.intro_title')}</h2>
+                            <p className="text-lg text-gray-600 dark:text-gray-400 mt-4">
+                                {t('services.intro_desc')}
                             </p>
                         </div>
                     </AnimatedSection>
@@ -47,22 +50,22 @@ const Services: React.FC = () => {
                         <AnimatedSection>
                             <ServiceCard 
                                 icon={<AirFreightIcon />} 
-                                title="Air Freight" 
-                                description="We can arrange and provides with the comprehensive service in the sphere of urgent, valuable, fragile or any cargoes conscientious accelerated delivery by air." 
+                                title={t('home.service_air_title')} 
+                                description={t('home.service_air_desc')} 
                             />
                         </AnimatedSection>
                         <AnimatedSection delay={200}>
                             <ServiceCard 
                                 icon={<OceanFreightIcon />} 
-                                title="Ocean Freight" 
-                                description="We can arrange and provides with the comprehensive service in the sphere of urgent, valuable, fragile or any cargoes conscientious accelerated delivery by sea." 
+                                title={t('home.service_ocean_title')} 
+                                description={t('home.service_ocean_desc')} 
                             />
                         </AnimatedSection>
                         <AnimatedSection delay={400}>
                             <ServiceCard 
                                 icon={<RoadFreightIcon />} 
-                                title="Road Freight" 
-                                description="We can arrange and provides with the comprehensive service in the sphere of urgent, valuable, fragile or any cargoes conscientious accelerated delivery by road." 
+                                title={t('home.service_road_title')} 
+                                description={t('home.service_road_desc')} 
                             />
                         </AnimatedSection>
                     </div>
@@ -70,12 +73,12 @@ const Services: React.FC = () => {
             </section>
 
             {/* Why Choose Us Section */}
-            <section className="py-24 bg-white">
+            <section className="py-24 bg-white dark:bg-gray-800 transition-colors duration-300">
                 <div className="container mx-auto px-6">
                     <AnimatedSection>
                         <div className="text-center mb-20">
-                             <h2 className="text-3xl md:text-4xl font-light text-gray-800 uppercase tracking-wide">WHY CHOOSE US?</h2>
-                             <p className="text-gray-500 italic mt-2">Reasons to choose us as your cargo transport partner</p>
+                             <h2 className="text-3xl md:text-4xl font-light text-gray-800 dark:text-white uppercase tracking-wide">{t('services.why_choose_us')}</h2>
+                             <p className="text-gray-500 dark:text-gray-400 italic mt-2">{t('services.why_choose_us_sub')}</p>
                              <div className="w-16 h-1 bg-fastway-orange mx-auto mt-6"></div>
                         </div>
                     </AnimatedSection>
@@ -91,9 +94,9 @@ const Services: React.FC = () => {
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-bold text-gray-700 mb-3 uppercase tracking-wide">NATIONWIDE BRANCH NETWORK</h3>
-                                    <p className="text-gray-600 leading-relaxed text-sm text-justify">
-                                        Mega Plus boasts an extensive system of branches and offices nationwide, including Hanoi, Hai Phong, Da Nang, Dong Nai, Binh Duong, Can Tho, and Ho Chi Minh City. We are confident in our ability to handle all domestic and international freight transportation needs.
+                                    <h3 className="text-lg font-bold text-gray-700 dark:text-gray-200 mb-3 uppercase tracking-wide">{t('services.wcu_1_title')}</h3>
+                                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm text-justify">
+                                        {t('services.wcu_1_desc')}
                                     </p>
                                 </div>
                             </div>
@@ -108,9 +111,9 @@ const Services: React.FC = () => {
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-bold text-gray-700 mb-3 uppercase tracking-wide">DIVERSE SERVICES</h3>
-                                    <p className="text-gray-600 leading-relaxed text-sm text-justify">
-                                        With over 10 years of experience in freight forwarding and logistics, Mega Plus understands the diverse needs of our clients. We continuously strive to build flexible and comprehensive service offerings to meet the most stringent customer requirements.
+                                    <h3 className="text-lg font-bold text-gray-700 dark:text-gray-200 mb-3 uppercase tracking-wide">{t('services.wcu_2_title')}</h3>
+                                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm text-justify">
+                                        {t('services.wcu_2_desc')}
                                     </p>
                                 </div>
                             </div>
@@ -125,9 +128,9 @@ const Services: React.FC = () => {
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-bold text-gray-700 mb-3 uppercase tracking-wide">GLOBAL STRENGTH</h3>
-                                    <p className="text-gray-600 leading-relaxed text-sm text-justify">
-                                        By placing your trust in Mega Plus, you ensure peace of mind regarding financial stability, vast resources, and a global agency network. As a member of WCA, FIATA, PPL Network, Neptune, VLA, and VCCI, we provide globally standardized, cost-effective, and high-quality solutions.
+                                    <h3 className="text-lg font-bold text-gray-700 dark:text-gray-200 mb-3 uppercase tracking-wide">{t('services.wcu_3_title')}</h3>
+                                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm text-justify">
+                                        {t('services.wcu_3_desc')}
                                     </p>
                                 </div>
                             </div>
@@ -142,9 +145,9 @@ const Services: React.FC = () => {
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-bold text-gray-700 mb-3 uppercase tracking-wide">OPTIMAL SOLUTIONS</h3>
-                                    <p className="text-gray-600 leading-relaxed text-sm text-justify">
-                                        Although there are many service providers in the logistics industry today, Mega Plus is dedicated to consistently finding the best, most efficient solutions for your specific freight transportation needs.
+                                    <h3 className="text-lg font-bold text-gray-700 dark:text-gray-200 mb-3 uppercase tracking-wide">{t('services.wcu_4_title')}</h3>
+                                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm text-justify">
+                                        {t('services.wcu_4_desc')}
                                     </p>
                                 </div>
                             </div>

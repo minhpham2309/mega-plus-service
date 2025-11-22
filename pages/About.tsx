@@ -2,23 +2,26 @@
 import React from 'react';
 import AnimatedSection from '../components/AnimatedSection';
 import Partners from '../components/Partners';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const About: React.FC = () => {
+    const { t } = useLanguage();
+
     return (
         <div>
             {/* Banner */}
             <section className="relative py-24 bg-cover bg-center" style={{ backgroundImage: "url('https://picsum.photos/1920/1080?grayscale&blur=2&random=99')" }}>
                 <div className="absolute inset-0 bg-[#1B2538]/95"></div>
                 <div className="relative container mx-auto px-6 text-center text-white z-10">
-                    <h1 className="text-4xl md:text-5xl font-normal mb-8 uppercase tracking-wider">ABOUT US</h1>
+                    <h1 className="text-4xl md:text-5xl font-normal mb-8 uppercase tracking-wider">{t('about.banner_title')}</h1>
                     <p className="text-lg md:text-xl font-light italic max-w-4xl mx-auto text-gray-300 leading-relaxed">
-                        MEGAPLUS – we are proud to be a pioneer in providing comprehensive solutions to bring fresh agricultural products to consumers with the right quality, at the right place and at the right time. With a commitment to bring sustainable value to customers
+                        {t('about.banner_desc')}
                     </p>
                 </div>
             </section>
 
             {/* Vision & Mission Section */}
-            <section className="py-20 bg-white">
+            <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
                 <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
                     <AnimatedSection>
                         <div className="overflow-hidden rounded-lg shadow-xl">
@@ -30,24 +33,24 @@ const About: React.FC = () => {
                         </div>
                     </AnimatedSection>
                     <AnimatedSection delay={200}>
-                        <h2 className="text-3xl font-bold text-gray-800 mb-4">Vision</h2>
-                        <p className="text-gray-600 mb-6 leading-relaxed">
-                            To become the leading and most prestigious enterprise in Southeast Asia by 2030 — specializing in import-export consulting, international logistics, and the supply of premium agricultural products and food.
+                        <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">{t('about.vision_title')}</h2>
+                        <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                            {t('about.vision_desc')}
                         </p>
                         
-                        <h3 className="text-xl font-bold text-gray-800 mb-3">🚀 Mission</h3>
-                        <ul className="space-y-3 text-gray-600 list-disc list-inside">
-                            <li>To be one of the most reliable and customer-preferred freight forwarders.</li>
-                            <li>To deliver competitive logistics solutions with professionalism and efficiency.</li>
-                            <li>To ensure the utmost satisfaction of our customers and global partners.</li>
-                            <li>To promote and facilitate the growth of international trade between Vietnam and the world.</li>
+                        <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-3">{t('about.mission_title')}</h3>
+                        <ul className="space-y-3 text-gray-600 dark:text-gray-300 list-disc list-inside">
+                            <li>{t('about.mission_1')}</li>
+                            <li>{t('about.mission_2')}</li>
+                            <li>{t('about.mission_3')}</li>
+                            <li>{t('about.mission_4')}</li>
                         </ul>
                     </AnimatedSection>
                 </div>
             </section>
 
             {/* Core Values Section */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
                 <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
                     <AnimatedSection>
                         <div className="overflow-hidden rounded-lg shadow-xl">
@@ -59,23 +62,23 @@ const About: React.FC = () => {
                         </div>
                     </AnimatedSection>
                     <AnimatedSection delay={200}>
-                        <h2 className="text-3xl font-bold text-gray-800 mb-6">Core Value</h2>
-                        <ul className="space-y-4 text-gray-600">
+                        <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">{t('about.core_value_title')}</h2>
+                        <ul className="space-y-4 text-gray-600 dark:text-gray-300">
                             <li className="flex flex-col">
-                                <strong className="text-gray-800 mb-1">Customer-Centric:</strong>
-                                <span>We always prioritize our customers’ benefits and experiences in every service we deliver.</span>
+                                <strong className="text-gray-800 dark:text-white mb-1">{t('about.cv_1_title')}</strong>
+                                <span>{t('about.cv_1_desc')}</span>
                             </li>
                             <li className="flex flex-col">
-                                <strong className="text-gray-800 mb-1">Continuous Innovation:</strong>
-                                <span>We continuously improve our processes through innovation and technology application.</span>
+                                <strong className="text-gray-800 dark:text-white mb-1">{t('about.cv_2_title')}</strong>
+                                <span>{t('about.cv_2_desc')}</span>
                             </li>
                             <li className="flex flex-col">
-                                <strong className="text-gray-800 mb-1">Professionalism:</strong>
-                                <span>Our team is committed to responsibility, integrity, and efficiency in every operation.</span>
+                                <strong className="text-gray-800 dark:text-white mb-1">{t('about.cv_3_title')}</strong>
+                                <span>{t('about.cv_3_desc')}</span>
                             </li>
                             <li className="flex flex-col">
-                                <strong className="text-gray-800 mb-1">Development:</strong>
-                                <span>We pursue sustainable growth for both our company and our partners.</span>
+                                <strong className="text-gray-800 dark:text-white mb-1">{t('about.cv_4_title')}</strong>
+                                <span>{t('about.cv_4_desc')}</span>
                             </li>
                         </ul>
                     </AnimatedSection>
