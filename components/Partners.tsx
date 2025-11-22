@@ -33,25 +33,25 @@ const Partners: React.FC = () => {
     const { t } = useLanguage();
 
     return (
-        <section className="py-20 bg-white dark:bg-gray-800 overflow-hidden transition-colors duration-300">
-            <div className="container mx-auto px-6 mb-12">
-                <h2 className="text-3xl font-bold text-gray-800 dark:text-white">{t('partners.title')}</h2>
+        <section className="py-12 md:py-20 bg-white dark:bg-gray-800 overflow-hidden transition-colors duration-300">
+            <div className="container mx-auto px-4 md:px-6 mb-8 md:mb-12">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white text-center md:text-left">{t('partners.title')}</h2>
             </div>
             
-            <div className="relative w-full flex flex-col gap-8">
+            <div className="relative w-full flex flex-col gap-4 md:gap-8">
                 {/* Row 1: Left to Right */}
-                <div className="flex w-max animate-scroll-right group gap-8">
+                <div className="flex w-max animate-scroll-right group gap-4 md:gap-8">
                     {topRowLogos.map((logo, index) => (
-                        <div key={`r1-${index}`} className="w-48 h-28 bg-white border border-gray-200 dark:border-gray-600 shadow-sm rounded-lg flex items-center justify-center p-4 hover:border-fastway-orange hover:shadow-md transition-all">
+                        <div key={`r1-${index}`} className="w-32 h-20 md:w-48 md:h-28 bg-white border border-gray-200 dark:border-gray-600 shadow-sm rounded-lg flex items-center justify-center p-4 hover:border-fastway-orange hover:shadow-md transition-all">
                              <img src={logo} alt="Partner" className="max-w-full max-h-full object-contain" />
                         </div>
                     ))}
                 </div>
 
                 {/* Row 2: Right to Left */}
-                <div className="flex w-max animate-scroll-left group gap-8">
+                <div className="flex w-max animate-scroll-left group gap-4 md:gap-8">
                     {bottomRowLogos.map((logo, index) => (
-                        <div key={`r2-${index}`} className="w-48 h-28 bg-white border border-gray-200 dark:border-gray-600 shadow-sm rounded-lg flex items-center justify-center p-4 hover:border-fastway-orange hover:shadow-md transition-all">
+                        <div key={`r2-${index}`} className="w-32 h-20 md:w-48 md:h-28 bg-white border border-gray-200 dark:border-gray-600 shadow-sm rounded-lg flex items-center justify-center p-4 hover:border-fastway-orange hover:shadow-md transition-all">
                             <img src={logo} alt="Partner" className="max-w-full max-h-full object-contain" />
                         </div>
                     ))}

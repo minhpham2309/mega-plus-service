@@ -8,27 +8,27 @@ const WhoWeServe: React.FC = () => {
     const { t } = useLanguage();
 
     return (
-        <div>
+        <div className="overflow-x-hidden">
             {/* Hero Section with Intro Text */}
-            <section className="relative py-24 bg-cover bg-center" style={{ backgroundImage: "url('https://picsum.photos/1920/1080?grayscale&blur=2&random=99')" }}>
+            <section className="relative py-16 md:py-24 bg-cover bg-center" style={{ backgroundImage: "url('https://picsum.photos/1920/1080?grayscale&blur=2&random=99')" }}>
                 <div className="absolute inset-0 bg-[#1B2538]/95"></div>
-                <div className="relative container mx-auto px-6 text-center text-white z-10">
-                    <h1 className="text-4xl md:text-5xl font-normal mb-8 uppercase tracking-wider">{t('who_we_serve.banner_title')}</h1>
-                    <p className="text-lg md:text-xl font-light italic max-w-4xl mx-auto text-gray-300 leading-relaxed">
+                <div className="relative container mx-auto px-4 md:px-6 text-center text-white z-10">
+                    <h1 className="text-3xl md:text-5xl font-normal mb-6 md:mb-8 uppercase tracking-wider">{t('who_we_serve.banner_title')}</h1>
+                    <p className="text-base md:text-xl font-light italic max-w-4xl mx-auto text-gray-300 leading-relaxed">
                         {t('who_we_serve.banner_desc')}
                     </p>
-                     <div className="w-16 h-1 bg-fastway-orange mx-auto mt-8"></div>
+                     <div className="w-12 md:w-16 h-1 bg-fastway-orange mx-auto mt-8"></div>
                 </div>
             </section>
 
             {/* Images and Content Section */}
-            <section className="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
-                <div className="container mx-auto px-6">
+            <section className="py-12 md:py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
+                <div className="container mx-auto px-4 md:px-6">
                     
                     {/* Two Images Row */}
-                    <div className="grid md:grid-cols-2 gap-8 mb-12">
+                    <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-12">
                         <AnimatedSection>
-                            <div className="overflow-hidden h-64 md:h-80 w-full">
+                            <div className="overflow-hidden h-48 md:h-80 w-full rounded-lg shadow-lg">
                                 <img 
                                     src="https://logistics-manager.com/wp-content/uploads/2019/10/CargoSphere-Launches-New-Maersk-Spot-Product-on-their-Neutral-Rates-Platform-1000x600.jpg" 
                                     alt="Sea Freight Maersk" 
@@ -37,7 +37,7 @@ const WhoWeServe: React.FC = () => {
                             </div>
                         </AnimatedSection>
                         <AnimatedSection delay={200}>
-                            <div className="overflow-hidden h-64 md:h-80 w-full">
+                            <div className="overflow-hidden h-48 md:h-80 w-full rounded-lg shadow-lg">
                                 <img 
                                     src="https://trans.vn/wp-content/uploads/2016/03/Depositphotos_35651917_original-580x350-300x181.jpg" 
                                     alt="Air Freight Engine" 
@@ -48,12 +48,12 @@ const WhoWeServe: React.FC = () => {
                     </div>
 
                     {/* Content Row: Vision & Core Value */}
-                    <div className="grid md:grid-cols-2 gap-12 items-start">
+                    <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
                         
                         {/* Vision */}
                         <AnimatedSection delay={100}>
-                            <div className="mb-6">
-                                <span className="bg-[#4A72C8] text-white text-lg font-medium px-4 py-1 uppercase tracking-wide">
+                            <div className="mb-6 text-center md:text-left">
+                                <span className="bg-[#4A72C8] text-white text-base md:text-lg font-medium px-4 py-1 uppercase tracking-wide inline-block">
                                     {t('who_we_serve.vision_badge')}
                                 </span>
                             </div>
@@ -79,11 +79,11 @@ const WhoWeServe: React.FC = () => {
 
                         {/* Core Value */}
                         <AnimatedSection delay={300}>
-                             <div className="mb-4">
-                                <h2 className="text-2xl font-light text-gray-800 dark:text-white uppercase tracking-wide">{t('who_we_serve.core_value_title')}</h2>
-                                <div className="w-12 h-1 bg-fastway-orange mt-2"></div>
+                             <div className="mb-4 text-center md:text-left">
+                                <h2 className="text-xl md:text-2xl font-light text-gray-800 dark:text-white uppercase tracking-wide">{t('who_we_serve.core_value_title')}</h2>
+                                <div className="w-12 h-1 bg-fastway-orange mt-2 mx-auto md:mx-0"></div>
                             </div>
-                            <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">
+                            <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed text-justify md:text-left">
                                 {t('who_we_serve.core_value_desc')}
                             </p>
                         </AnimatedSection>

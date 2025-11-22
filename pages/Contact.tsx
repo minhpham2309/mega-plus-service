@@ -23,22 +23,22 @@ const Contact: React.FC = () => {
     };
 
     return (
-        <div className="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <div className="bg-gray-50 dark:bg-gray-900 transition-colors duration-300 overflow-x-hidden">
             {/* Contact Section */}
-            <section className="py-24">
-                <div className="container mx-auto px-6">
+            <section className="py-16 md:py-24">
+                <div className="container mx-auto px-4 md:px-6">
                     <AnimatedSection>
-                        <div className="text-center mb-12">
-                            <span className="text-fastway-orange font-semibold">{t('contact.badge')}</span>
-                            <h2 className="text-4xl font-bold text-gray-800 dark:text-white mt-2">{t('contact.title')}</h2>
-                            <p className="text-lg text-gray-600 dark:text-gray-300 mt-4 max-w-3xl mx-auto">
+                        <div className="text-center mb-10 md:mb-12">
+                            <span className="text-fastway-orange font-semibold text-sm md:text-base">{t('contact.badge')}</span>
+                            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mt-2">{t('contact.title')}</h2>
+                            <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 mt-4 max-w-3xl mx-auto">
                                 {t('contact.desc')}
                             </p>
                         </div>
                     </AnimatedSection>
 
                     <AnimatedSection delay={200}>
-                        <div className="max-w-2xl mx-auto bg-white dark:bg-gray-800 p-8 md:p-12 rounded-lg shadow-xl transition-colors duration-300">
+                        <div className="max-w-2xl mx-auto bg-white dark:bg-gray-800 p-6 md:p-12 rounded-lg shadow-xl transition-colors duration-300">
                             <form onSubmit={handleSubmit}>
                                 <div className="mb-6">
                                     <label htmlFor="name" className="block text-gray-700 dark:text-gray-200 font-medium mb-2">{t('contact.form_name')} <span className="text-red-500">*</span></label>
@@ -78,7 +78,7 @@ const Contact: React.FC = () => {
                                 <div className="text-center">
                                     <button
                                         type="submit"
-                                        className="bg-fastway-dark-blue text-white font-bold py-3 px-10 rounded-lg hover:bg-gray-800 transition-colors duration-300"
+                                        className="w-full md:w-auto bg-fastway-dark-blue text-white font-bold py-3 px-10 rounded-lg hover:bg-gray-800 transition-colors duration-300"
                                     >
                                         {t('common.submit_request')}
                                     </button>
