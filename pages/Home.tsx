@@ -130,7 +130,12 @@ const Home: React.FC = () => {
                             <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 text-justify md:text-left text-sm md:text-base">
                                 {t('home.safe_desc')}
                             </p>
-                            <button className="bg-fastway-orange text-white font-bold py-3 px-8 rounded-full hover:bg-orange-600 transition-colors duration-300 text-sm md:text-base">{t('common.schedule_appointment')}</button>
+                            <a 
+                                href="mailto:info@megaplusvn.com?subject=Schedule an Appointment" 
+                                className="inline-block bg-fastway-orange text-white font-bold py-3 px-8 rounded-full hover:bg-orange-600 transition-colors duration-300 text-sm md:text-base"
+                            >
+                                {t('common.schedule_appointment')}
+                            </a>
                         </div>
                     </AnimatedSection>
                     <AnimatedSection delay={200}>
