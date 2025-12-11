@@ -182,8 +182,16 @@ export const translations = {
         title: 'Contact Us',
         desc: 'We understand the importance of approaching each work integrally and believe in the power of simple and easy communication.',
         form_name: 'Name',
+        form_company: 'Company Name',
         form_phone: 'Phone',
         form_email: 'Email',
+        form_subject: 'Subject',
+        form_message: 'Content',
+        subject_select: 'Select a subject',
+        subject_support: 'Support',
+        subject_collaboration: 'Contact for collaboration',
+        subject_pricing: 'Pricing Quote',
+        subject_other: 'Other'
     },
     partners: {
         title: 'Our Partners'
@@ -371,8 +379,16 @@ export const translations = {
         title: 'Liên Hệ Chúng Tôi',
         desc: 'Chúng tôi hiểu tầm quan trọng của việc tiếp cận từng công việc một cách toàn vẹn và tin vào sức mạnh của sự giao tiếp đơn giản và dễ dàng.',
         form_name: 'Tên',
+        form_company: 'Tên Doanh Nghiệp',
         form_phone: 'Số điện thoại',
         form_email: 'Email',
+        form_subject: 'Chủ đề',
+        form_message: 'Nội dung',
+        subject_select: 'Chọn chủ đề',
+        subject_support: 'Hỗ trợ',
+        subject_collaboration: 'Liên hệ hợp tác',
+        subject_pricing: 'Báo giá',
+        subject_other: 'Khác'
     },
     partners: {
         title: 'Đối Tác Của Chúng Tôi'
