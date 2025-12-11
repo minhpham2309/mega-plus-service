@@ -32,7 +32,8 @@ const Header: React.FC = () => {
       <header className="bg-fastway-dark-blue/95 backdrop-blur-sm sticky top-0 z-50 transition-colors duration-300 dark:bg-gray-900/95 shadow-md">
         <div className="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
           <NavLink to="/" className="text-2xl font-bold text-white z-50" onClick={closeMenu}>
-            <Logo className="h-8 w-auto md:h-10" />
+            {/* Logo Height: 64px on mobile (h-16) and 96px on desktop (md:h-24) */}
+            <Logo className="h-16 w-auto md:h-24" />
           </NavLink>
 
           {/* Desktop Navigation */}

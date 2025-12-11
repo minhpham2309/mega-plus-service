@@ -14,7 +14,8 @@ const Footer: React.FC = () => {
           {/* Column 1: Company Info */}
           <div className="break-words">
             <div className="mb-6">
-                <Logo className="h-8 w-auto md:h-10 text-white" />
+                {/* Logo Height: 80px on mobile (h-20) and 128px on desktop (md:h-32) */}
+                <Logo className="h-20 w-auto md:h-32 text-white" />
             </div>
             <h3 className="text-base md:text-lg font-bold text-white mb-1 uppercase tracking-wide">
               {t('footer.company_name')}
